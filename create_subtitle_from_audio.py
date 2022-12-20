@@ -1,9 +1,9 @@
 import subprocess
 
 
-def generate_subtitle_file_from_audio(
+def generate_subtitle_from_audio(
     mp3_file: str,
-    output_file: str,
+    output_file_dir: str,
     language: str,
     model: str = "large",
     dry_run: bool = False,
@@ -12,11 +12,10 @@ def generate_subtitle_file_from_audio(
 
     Args:
         mp3_file (str): The path to the input mp3 file
-        output_file (str): The path to the output subtitle
+        output_file_dir (str): The path to the output subtitle
         language (str): The language of the audio
         model (str, optional): The model of the audio. Defaults to "large".
     """
-
     wihsperx_command = [
         "whisperx",
         "--model",
@@ -25,7 +24,7 @@ def generate_subtitle_file_from_audio(
         language,
         mp3_file,
         "--output_dir",
-        output_file,
+        output_file_dir,
     ]
 
     subprocess.run(wihsperx_command)
@@ -37,19 +36,15 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("mp3_file", help="The path to the input mp3 mp3 file")
     parser.add_argument(
-        "output_file", help="The path to the output subbed video file"
+        "output_file_dir", help="The path to the output subbed video file"
     )
-    parser.add_argument(
-        "--language", help="The language of the audio", default="en"
-    )
-    parser.add_argument(
-        "--model", help="The model of the audio", default="large"
-    )
+    parser.add_argument("--language", help="The language of the audio", default="en")
+    parser.add_argument("--model", help="The model of the audio", default="large")
     args = parser.parse_args()
 
-    generate_subtitle_file_from_audio(
+    generate_subtitle_from_audio(
         args.mp3_file,
-        args.output_file,
+        args.output_file_dir,
         args.language,
         args.model,
         args.dry_run,
