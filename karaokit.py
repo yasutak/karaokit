@@ -1,7 +1,7 @@
 import pathlib
 
 from create_subtitle_from_audio import generate_subtitle_from_audio
-from generate_subbed_video import generate_subbed_video
+from generate_subtitle_only_video import generate_subtitle_only_video
 
 
 def karaokit(
@@ -30,7 +30,7 @@ def karaokit(
         dry_run=dry_run,
     )
     stem_file_name = pathlib.Path(mp3_file).stem
-    generate_subbed_video(
+    generate_subtitle_only_video(
         mp3_file=mp3_file,
         ass_file=f"{output_file_dir}/{stem_file_name}.ass",
         output_file_dir=output_file_dir,

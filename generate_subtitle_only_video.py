@@ -2,7 +2,7 @@ import pathlib
 import subprocess
 
 
-def generate_subbed_video(
+def generate_subtitle_only_video(
     mp3_file: str,
     ass_file: str,
     output_file_dir: str,
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("mp3_file", help="The path to the input mp3 mp3 file")
+    parser.add_argument("mp3_file", help="The path to the input mp3 file")
     parser.add_argument("ass_file", help="The path to the input ass subtitle file")
     parser.add_argument(
         "output_file_dir", help="The path to the output subbed video file"
@@ -64,7 +64,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    generate_subbed_video(
+    generate_subtitle_only_video(
         args.mp3_file,
         args.ass_file,
         args.output_file_dir,
