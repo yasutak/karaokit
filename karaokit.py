@@ -1,6 +1,6 @@
 import pathlib
 
-from create_subtitle_from_audio import generate_subtitle_from_audio
+from create_subtitle_from_media import generate_subtitle_from_media
 from generate_subtitle_only_video import generate_subtitle_only_video
 
 
@@ -22,7 +22,7 @@ def karaokit(
         resolution (str, optional): The resolution of the video. Defaults to "md".
     """
 
-    generate_subtitle_from_audio(
+    generate_subtitle_from_media(
         mp3_file=mp3_file,
         output_file_dir=output_file_dir,
         language=language,

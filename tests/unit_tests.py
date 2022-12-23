@@ -4,7 +4,7 @@ import unittest
 
 sys.path.append("..")
 
-from create_subtitle_from_audio import generate_subtitle_from_audio
+from create_subtitle_from_media import generate_subtitle_from_media
 from generate_subtitle_only_video import generate_subtitle_only_video
 from karaokit import karaokit
 
@@ -18,8 +18,8 @@ ja_song_ass_path = pathlib.Path("../tests/output/ja_song.mp3.ass").resolve()
 
 class TestGenerateSubtitleFileFromAudio(unittest.TestCase):
     def test_generate_subtitle_from_audio(self):
-        generate_subtitle_from_audio(
-            mp3_file=ja_song_mp3_path,
+        generate_subtitle_from_media(
+            input_file=ja_song_mp3_path.__str__(),
             output_file_dir=output_dir.__str__(),
             language="ja",
             model="tiny",
