@@ -3,8 +3,6 @@
 ## requirements
 
 `ffmpeg`
-`pip install whisepr`
-`pip install git+https://github.com/m-bain/whisperx.git`
 
 ## credits
 
