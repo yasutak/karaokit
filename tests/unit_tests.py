@@ -28,7 +28,7 @@ class TestGenerateSubtitleFileFromAudio(unittest.TestCase):
 
 class TestGenerateSubbedVideos(unittest.TestCase):
     def test_generate_subbed_video(self):
-        generate_subbed_video(
+        generate_subtitle_only_video(
             mp3_file=ja_song_mp3_path,
             ass_file=ja_song_ass_path,
             output_file_dir=output_dir.__str__(),
