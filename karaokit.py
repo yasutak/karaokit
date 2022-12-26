@@ -31,13 +31,24 @@ def karaokit(
         dry_run=dry_run,
     )
     stem_file_name = pathlib.Path(media_file).stem
-    generate_subtitle_only_video(
-        media_file=media_file,
-        ass_file=f"{output_file_dir}/{stem_file_name}.ass",
-        output_file_dir=output_file_dir,
-        resolution=resolution,
-        dry_run=dry_run,
-    )
+    if media_file.__str__().endswith(".mp3"):
+        generate_subtitle_only_video(
+            media_file=media_file,
+            ass_file=f"{output_file_dir}/{stem_file_name}.ass",
+            output_file_dir=output_file_dir,
+            resolution=resolution,
+            dry_run=dry_run,
+        )
+    elif media_file.__str__().endswith(".mp4"):
+        add_subtitle_to_video(
+            media_file=media_file,
+            ass_file=f"{output_file_dir}/{stem_file_name}.ass",
+            output_file_dir=output_file_dir,
+            resolution=resolution,
+            dry_run=dry_run,
+        )
+    else:
+        raise Exception(f"Input file must be mp3 or mp4, not {media_file.__str__().split('.')[-1]}")
 
 
 if __name__ == "__main__":
