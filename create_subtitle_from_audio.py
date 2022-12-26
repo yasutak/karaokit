@@ -21,7 +21,9 @@ def generate_subtitle_from_audio(mp3_file: str, output_file_dir: str, language: 
         output_file_dir,
     ]
 
-    subprocess.run(wihsperx_command)
+    result = subprocess.run(wihsperx_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
+    if result.returncode != 0:
+        raise Exception(f"WhisperX failed to generate subtitle file, {result.stderr}")
 
 
 if __name__ == "__main__":
