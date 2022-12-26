@@ -28,7 +28,7 @@ def convert_mp4_to_mp3(input_file: str) -> str:
     return output_file_path
 
 
-def generate_subtitle_from_media(
+def create_subtitle_from_media(
     input_file: str,
     output_file_dir: str,
     language: str,
@@ -73,7 +73,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", help="The model of the audio", default="large")
     args = parser.parse_args()
 
-    generate_subtitle_from_media(
+    create_subtitle_from_media(
         args.input_file,
         args.output_file_dir,
         args.language,
