@@ -51,4 +51,4 @@ if __name__ == "__main__":
     parser.add_argument("--dry_run", help="If True, the ffmpeg command will not be run", default=False)
     args = parser.parse_args()
 
-    generate_subbed_video(args.video, args.ass_file, args.output_file_dir, args.resolution, args.dry_run)
+    add_subtitle_to_video(args.video, args.ass_file, args.output_file_dir, args.resolution, args.dry_run)
