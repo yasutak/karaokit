@@ -2,7 +2,7 @@ import pathlib
 import subprocess
 
 
-def generate_subbed_video(
+def add_subtitle_to_video(
     video_file: str, ass_file: str, output_file_dir: str, resolution: str = "md", dry_run: bool = False
 ) -> None:
     """Generate a subbed video from ass file.
