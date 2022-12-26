@@ -32,7 +32,7 @@ class TestKaraokit(unittest.TestCase):
 
     def test_karaokit_video(self):
         karaokit(
-            mp4_file=ja_song_mp4_path,
+            media_file=ja_song_mp4_path,
             output_file_dir=".",
             language="ja",
             model="large",
