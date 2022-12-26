@@ -29,7 +29,7 @@ def convert_mp4_to_mp3(input_file: str) -> str:
 
 
 def create_subtitle_from_media(
-    input_file: str,
+    media_file: str,
     output_file_dir: str,
     language: str,
     model: str = "large",
@@ -44,8 +44,12 @@ def create_subtitle_from_media(
         model (str, optional): The model of the audio. Defaults to "large".
     """
 
-    if input_file.endswith(".mp4"):
-        mp3_file = convert_mp4_to_mp3(input_file=input_file)
+    if media_file.__str__().endswith(".mp4"):
+        mp3_file = convert_mp4_to_mp3(input_file=media_file)
+    elif media_file.__str__().endswith(".mp3"):
+        mp3_file = media_file
+    else:
+        raise Exception(f"Input file must be mp3 or mp4, not {media_file.__str__().split('.')[-1]}")
 
     wihsperx_command = [
         "whisperx",
@@ -67,7 +71,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("input_file", help="The path to the input mp3 mp3 file")
+    parser.add_argument("input_file", help="The path to the input mp3 or mp4 file")
     parser.add_argument("output_file_dir", help="The path to the output subbed video file")
     parser.add_argument("--language", help="The language of the audio", default="en")
     parser.add_argument("--model", help="The model of the audio", default="large")
