@@ -12,8 +12,8 @@ if not pathlib.Path("output").exists():
     pathlib.Path("output").mkdir(parents=True, exist_ok=True)
 
 ja_song_mp3_path = pathlib.Path("../examples/ja_song.mp3").resolve()
+ja_song_ass_path = pathlib.Path("../examples/ja_song.ass").resolve()
 output_dir = pathlib.Path("../tests/output/").resolve()
-ja_song_ass_path = pathlib.Path("../tests/output/ja_song.mp3.ass").resolve()
 
 
 class TestGenerateSubtitleFileFromAudio(unittest.TestCase):
@@ -39,14 +39,11 @@ class TestGenerateSubbedVideos(unittest.TestCase):
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTest(
-        TestGenerateSubtitleFileFromAudio("test_generate_subtitle_from_audio")
-    )
+    suite.addTest(TestGenerateSubtitleFileFromAudio("test_generate_subtitle_from_audio"))
     suite.addTest(TestGenerateSubbedVideos("test_generate_subbed_video"))
     return suite
 
 
-"""
 class TestKaraokit(unittest.TestCase):
     def test_karaokit(self):
         karaokit(
@@ -57,7 +54,7 @@ class TestKaraokit(unittest.TestCase):
             resolution="md",
             dry_run=False,
         )
-"""
+
 
 if __name__ == "__main__":
     runner = unittest.TextTestRunner(failfast=True)

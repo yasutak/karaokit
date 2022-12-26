@@ -40,7 +40,7 @@ def generate_subtitle_only_video(
         "-vf",
         f"subtitles={ass_file}:force_style='Fontsize=40",
         "-shortest",
-        output_file_dir + "/" + output_file_name,
+        output_file_dir.__str__() + "/" + output_file_name,
     ] + dry_run
     subprocess.run(ffmpeg_command)
 
@@ -51,12 +51,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("mp3_file", help="The path to the input mp3 file")
     parser.add_argument("ass_file", help="The path to the input ass subtitle file")
-    parser.add_argument(
-        "output_file_dir", help="The path to the output subbed video file"
-    )
-    parser.add_argument(
-        "--resolution", help="The resolution of the output video", default="md"
-    )
+    parser.add_argument("output_file_dir", help="The path to the output subbed video file")
+    parser.add_argument("--resolution", help="The resolution of the output video", default="md")
     parser.add_argument(
         "--dry_run",
         help="If True, the ffmpeg command will not be run",
