@@ -42,7 +42,10 @@ def generate_subtitle_only_video(
         "-shortest",
         output_file_dir.__str__() + "/" + output_file_name,
     ] + dry_run
-    subprocess.run(ffmpeg_command)
+    result = subprocess.run(ffmpeg_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
+    if result.returncode != 0:
+        print(result.stderr)
+        raise Exception("ffmpeg command failed in generate_subtitle_only_video.py", result.stderr)
 
 
 if __name__ == "__main__":

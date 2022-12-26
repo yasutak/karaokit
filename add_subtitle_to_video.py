@@ -37,7 +37,9 @@ def add_subtitle_to_video(
         output_file_dir.__str__() + "/" + output_file_name,
     ] + dry_run
 
-    subprocess.run(ffmpeg_command)
+    result = subprocess.run(ffmpeg_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
+    if result.returncode != 0:
+        raise Exception("ffmpeg command failed in add_subtitle_to_video.py", result.stderr)
 
 
 if __name__ == "__main__":
