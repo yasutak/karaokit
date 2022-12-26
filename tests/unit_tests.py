@@ -18,38 +18,6 @@ ja_song_ass_path = pathlib.Path("../examples/ja_song.ass").resolve()
 output_dir = pathlib.Path("../tests/output/").resolve()
 
 
-class TestGenerateSubtitleFileFromAudio(unittest.TestCase):
-    def test_generate_subtitle_from_audio(self):
-        create_subtitle_from_media(
-            input_file=ja_song_mp3_path.__str__(),
-            output_file_dir=output_dir.__str__(),
-            language="ja",
-            model="tiny",
-        )
-
-
-class TestGenerateSubbedVideos(unittest.TestCase):
-    def test_generate_subbed_video(self):
-        create_subtitle_only_video(
-            mp3_file=ja_song_mp3_path,
-            ass_file=ja_song_ass_path,
-            output_file_dir=output_dir.__str__(),
-            resolution="md",
-            dry_run=True,
-        )
-
-
-class TestAddSubtitleToVideo(unittest.TestCase):
-    def test_add_subtitle_to_video(self):
-        add_subtitle_to_video(
-            mp3_file=ja_song_mp3_path,
-            ass_file=ja_song_ass_path,
-            output_file_dir=output_dir.__str__(),
-            resolution="md",
-            dry_run=False,
-        )
-
-
 class TestKaraokit(unittest.TestCase):
     def test_karaokit_audio(self):
         karaokit(
@@ -73,5 +41,4 @@ class TestKaraokit(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    runner = unittest.TextTestRunner(failfast=True)
-    runner.run(suite())
+    unittest.main()
