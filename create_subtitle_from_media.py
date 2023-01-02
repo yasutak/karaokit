@@ -45,7 +45,7 @@ def generate_subtitle_from_media(
     """
 
     if input_file.endswith(".mp4"):
-        mp3_file = convert_mp4_to_mp3(input_file=input_file)
+        input_file = convert_mp4_to_mp3(input_file=input_file)
 
     wihsperx_command = [
         "whisperx",
@@ -53,7 +53,7 @@ def generate_subtitle_from_media(
         model,
         "--language",
         language,
-        mp3_file,
+        input_file,
         "--output_dir",
         output_file_dir,
     ]
