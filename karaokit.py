@@ -19,7 +19,7 @@ def karaokit(
         media_file (str): The path to the input media file (mp3 or mp4)
         output_file_dir (str): The path to the output subbed video file
         language (str): The language of the media
-        model (str, optional): The model of the media. Defaults to "large".
+        model (str, optional): The size of the transcription model, Whisper. Defaults to "large".
         resolution (str, optional): The resolution of the video. Defaults to "md".
     """
 
