@@ -3,7 +3,7 @@ import subprocess
 
 
 def generate_subtitle_only_video(
-    mp3_file: str,
+    media_file: str,
     ass_file: str,
     output_file_dir: str,
     resolution: str = "md",
@@ -28,7 +28,7 @@ def generate_subtitle_only_video(
         resolution = "563X250"
 
     dry_run = ["-f", "null -"] if dry_run else []
-    output_file_name = pathlib.Path(mp3_file).stem + ".mp4"
+    output_file_name = pathlib.Path(media_file).stem + ".mp4"
     ffmpeg_command = [
         "ffmpeg",
         "-f",
