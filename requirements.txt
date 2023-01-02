@@ -19,4 +19,4 @@ transformers==4.25.1
 typing_extensions==4.4.0
 urllib3==1.26.13
 whisper==1.1.10
-whisperx @ git+https://github.com/m-bain/whisperx.git@e909f2f766b23b2000f2d95df41f9b844ac53e49
+whisperx @ git+https://github.com/m-bain/whisperx.git
