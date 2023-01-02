@@ -46,6 +46,8 @@ def generate_subtitle_only_video(
     if result.returncode != 0:
         print(result.stderr)
         raise Exception("ffmpeg command failed in generate_subtitle_only_video.py", result.stderr)
+    else:
+        print("ffmpeg command successful in generating subtitle only video.")
 
 
 if __name__ == "__main__":

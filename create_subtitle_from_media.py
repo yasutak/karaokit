@@ -65,6 +65,8 @@ def create_subtitle_from_media(
     result = subprocess.run(wihsperx_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
     if result.returncode != 0:
         raise Exception(f"WhisperX failed to generate subtitle file in create_subtitle_from_media", {result.stderr})
+    else:
+        print("WhisperX successfully generated subtitle file")
 
 
 if __name__ == "__main__":
