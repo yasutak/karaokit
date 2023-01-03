@@ -1,6 +1,6 @@
 # karaokit
 
-Simple karaoke-style video generator, using [Whisper](https://www.google.com/search?q=whisper+openai&oq=whisper+openai&aqs=chrome..69i57j0i512l3j69i60l3j69i65.6087j0j7&sourceid=chrome&ie=UTF-8) for transcription and [whisperx](https://github.com/m-bain/whisperX) for token-wise text alignment.
+Simple karaoke-style video generator, using [whisper](https://www.google.com/search?q=whisper+openai&oq=whisper+openai&aqs=chrome..69i57j0i512l3j69i60l3j69i65.6087j0j7&sourceid=chrome&ie=UTF-8) for transcription and [whisperx](https://github.com/m-bain/whisperX) for token-wise text alignment.
 
 ## requirements
 
