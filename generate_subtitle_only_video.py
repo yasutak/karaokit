@@ -12,7 +12,7 @@ def generate_subtitle_only_video(
     """Generate a subbed video from an mp3 and ass file.
 
     Args:
-        mp3_file (str): The path to the input mp3 file
+        media_file (str): The path to the input mp3 file
         ass_file (str): The path to the input ass file
         output_file_dir (str): The path to the output subbed video file (.mp4 or .mkv)
         resolution (str, optional): The resolution of the output video. Defaults to "md".
@@ -36,7 +36,7 @@ def generate_subtitle_only_video(
         "-i",
         f"color=size={resolution}:rate=25:color=black",
         "-i",
-        mp3_file,
+        media_file,
         "-vf",
         f"subtitles={ass_file}:force_style='Fontsize=40",
         "-shortest",
