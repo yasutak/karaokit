@@ -41,7 +41,7 @@ def karaokit(
         )
     elif media_file.__str__().endswith(".mp4"):
         add_subtitle_to_video(
-            media_file=media_file,
+            video_file=media_file,
             ass_file=f"{output_file_dir}/{stem_file_name}.ass",
             output_file_dir=output_file_dir,
             resolution=resolution,
